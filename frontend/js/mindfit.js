@@ -255,3 +255,5 @@ class MindFitApp {
 document.addEventListener('DOMContentLoaded', () => {
     window.mindFitApp = new MindFitApp();
 });
+
+

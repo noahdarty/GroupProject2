@@ -15,12 +15,30 @@ namespace GroupProject2.API.Controllers
             _databaseService = databaseService;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<List<Mood>>> GetAllMoods()
+        {
+            try
+            {
+                Console.WriteLine("Getting all moods for admin dashboard");
+                var moods = await _databaseService.GetAllMoodsAsync();
+                Console.WriteLine($"Found {moods.Count} total moods");
+                return Ok(moods);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
         [HttpGet("student/{studentId}")]
         public async Task<ActionResult<List<Mood>>> GetMoodsByStudent(int studentId)
         {
             try
             {
+                Console.WriteLine($"Getting moods for student ID: {studentId}");
                 var moods = await _databaseService.GetMoodsByStudentIdAsync(studentId);
+                Console.WriteLine($"Found {moods.Count} moods for student {studentId}");
                 return Ok(moods);
             }
             catch (Exception ex)

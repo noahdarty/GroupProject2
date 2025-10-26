@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GroupProject2.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+071c6bef0e894bd48ec5b978a36392c7a4e5d080")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f0aa1a97d4da71e008de06d8ff775f1b4ad2eeb")]
 [assembly: System.Reflection.AssemblyProductAttribute("GroupProject2.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GroupProject2.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

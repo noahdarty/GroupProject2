@@ -62,6 +62,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#recent-moods">Recent Moods</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rate-coach">Rate My Coach</a>
+                    </li>
                 </ul>
                 
                 <!-- Coach Navigation (hidden by default) -->
@@ -74,6 +77,28 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#student-analytics">Student Analytics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#earnings">Earnings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#my-ratings">My Ratings</a>
+                    </li>
+                </ul>
+                
+                <!-- Admin Navigation (hidden by default) -->
+                <ul class="navbar-nav ms-4" id="adminNav" style="display: none;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#admin-dashboard">Student Moods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#admin-students">Total Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#admin-profit">Profit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#admin-coach-ratings">Coach Ratings</a>
                     </li>
                 </ul>
                 
@@ -118,36 +143,37 @@
                             <label for="loginEmail" class="form-label">Email Address</label>
                             <input type="email" class="form-control" id="loginEmail" required>
                         </div>
-                        <div class="mb-3">
+                                <div class="mb-3">
                             <label for="loginPassword" class="form-label">Password</label>
                             <input type="password" class="form-control" id="loginPassword" required>
-                        </div>
+                                </div>
                                 <div class="mb-3">
                             <label for="userType" class="form-label">I am a:</label>
                             <select class="form-select" id="userType" required>
                                 <option value="">Select user type</option>
                                 <option value="student">Student</option>
                                 <option value="coach">Coach</option>
+                                <option value="admin">Admin</option>
                             </select>
-                        </div>
+                                </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary">
                                 <i class="bi bi-box-arrow-in-right me-2"></i>
                                 Login
-                            </button>
+                                </button>
                         </div>
-                    </form>
-                </div>
+                            </form>
+                        </div>
                 <div class="modal-footer">
                     <small class="text-muted">
                         Don't have an account? 
                         <a href="#student" class="text-primary" data-bs-dismiss="modal">Register as Student</a> or 
                         <a href="#coach" class="text-primary" data-bs-dismiss="modal">Register as Coach</a>
                     </small>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
     <!-- Home Page Content -->
     <div id="home-content" class="page-content">
@@ -403,6 +429,7 @@
                                                 <input type="number" class="form-control" id="coachExperience" min="0" required>
                                             </div>
                                         </div>
+                                        
                                         
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-lg px-5">
@@ -698,6 +725,90 @@
         </section>
     </div>
 
+    <!-- Rate My Coach Page Content -->
+    <div id="rate-coach-content" class="page-content" style="display: none;">
+        <section class="rate-coach-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="rate-coach-content">
+                            <div class="rate-coach-header text-center mb-5">
+                                <h2 class="display-4 fw-bold text-white mb-4">Rate My Coach</h2>
+                                <div class="rate-coach-badge">
+                                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill">
+                                        <i class="bi bi-star-fill me-2"></i>
+                                        Share Your Experience
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="rate-coach-form-section">
+                                <div class="rate-coach-card mb-4">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="coach-info-card">
+                                                <h4 class="text-white mb-3">Your Coach</h4>
+                                                <div id="coachInfo" class="coach-details">
+                                                    <!-- Coach info will be loaded here -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="rating-form-card">
+                                                <h4 class="text-white mb-3">Rate Your Experience</h4>
+                                                <form id="coachRatingForm">
+                                                    <div class="mb-4">
+                                                        <label class="form-label text-white">Rating (1-5 stars)</label>
+                                                        <div class="rating-input">
+                                                            <select class="form-select" id="ratingSelect" required>
+                                                                <option value="">Select Rating</option>
+                                                                <option value="1">1 Star - Poor</option>
+                                                                <option value="2">2 Stars - Fair</option>
+                                                                <option value="3">3 Stars - Good</option>
+                                                                <option value="4">4 Stars - Very Good</option>
+                                                                <option value="5">5 Stars - Excellent</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="mb-4">
+                                                        <label class="form-label text-white">Review (Optional)</label>
+                                                        <textarea class="form-control" id="reviewText" rows="4" placeholder="Share your thoughts about your coach..."></textarea>
+                                                    </div>
+                                                    
+                                                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                                                        <i class="bi bi-star-fill me-2"></i>
+                                                        Submit Rating
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="rating-success-message text-center py-4" id="ratingSuccessMessage" style="display: none;">
+                                    <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                                    <h4 class="mt-3 text-white">Thank you for your feedback!</h4>
+                                    <p class="text-white-50">Your rating has been submitted successfully.</p>
+                                </div>
+                                
+                                <div class="no-coach-message text-center py-5" id="noCoachMessage" style="display: none;">
+                                    <i class="bi bi-person-x text-primary" style="font-size: 3rem;"></i>
+                                    <h4 class="mt-3 text-white">No Coach Assigned</h4>
+                                    <p class="text-white-50">You need to choose a coach before you can rate them.</p>
+                                    <a href="#choose-coach" class="btn btn-primary btn-lg mt-3">
+                                        <i class="bi bi-people-fill me-2"></i>
+                                        Choose a Coach
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- View My Students Page Content -->
     <div id="view-students-content" class="page-content" style="display: none;">
         <section class="view-students-section">
@@ -800,12 +911,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                        </div>
                                 
                                 <div class="workouts-list" id="workoutsList">
                                     <!-- Student workouts will be loaded here -->
                                     <div class="text-center">
-                                        <div class="spinner-border text-primary" role="status">
+                                <div class="spinner-border text-primary" role="status">
                                             <span class="visually-hidden">Loading workouts...</span>
                                         </div>
                                     </div>
@@ -815,6 +926,20 @@
                                     <i class="bi bi-lightning text-primary" style="font-size: 3rem;"></i>
                                     <h4 class="mt-3 text-white">No workouts available yet</h4>
                                     <p class="text-white-50">Student workouts will appear here once they log their moods.</p>
+                                </div>
+                                
+                                <!-- Custom Workouts Management Section -->
+                                <div class="custom-workouts-section mt-5" id="customWorkoutsSection" style="display: none;">
+                                    <div class="section-header mb-4">
+                                        <h4 class="text-white mb-3">
+                                            <i class="bi bi-gear me-2"></i>Custom Workouts Management
+                                        </h4>
+                                        <p class="text-white-50">Manage custom workouts for your students</p>
+                                    </div>
+                                    
+                                    <div class="custom-workouts-list" id="customWorkoutsList">
+                                        <!-- Custom workouts will be loaded here -->
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -863,9 +988,9 @@
                                            </div>
                                         <div class="chart-wrapper">
                                             <canvas id="moodTrendsChart" width="400" height="200"></canvas>
-                                        </div>
-                                    </div>
-                                    
+                                </div>
+                            </div>
+
                                     <div class="mood-distribution mb-4">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -881,14 +1006,341 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
+                        </div>
+
                                     <div class="student-insights" id="studentInsights">
                                         <!-- Student insights will be loaded here -->
                                         <div class="text-center">
-                                            <div class="spinner-border text-primary" role="status">
+                                <div class="spinner-border text-primary" role="status">
                                                 <span class="visually-hidden">Loading insights...</span>
                                             </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </section>
+    </div>
+
+    <!-- Earnings Page Content -->
+    <div id="earnings-content" class="page-content" style="display: none;">
+        <section class="earnings-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="earnings-content">
+                            <div class="earnings-header text-center mb-5">
+                                <h2 class="display-4 fw-bold text-white mb-4">My Earnings</h2>
+                                <div class="earnings-badge">
+                                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill">
+                                        <i class="bi bi-currency-dollar me-2"></i>
+                                        Track Your Income
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Earnings Overview -->
+                            <div class="earnings-overview mb-5">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="earnings-stats-card">
+                                            <div class="text-center">
+                                                <div class="earnings-icon">
+                                                    <i class="bi bi-wallet2"></i>
+                                                </div>
+                                                <h3 class="earnings-amount" id="totalEarnings">$0.00</h3>
+                                                <p class="earnings-label">Total Earnings</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="earnings-stats-card">
+                                            <div class="text-center">
+                                                <div class="earnings-icon">
+                                                    <i class="bi bi-calendar"></i>
+                                                </div>
+                                                <h3 class="earnings-amount" id="monthlyEarnings">$0.00</h3>
+                                                <p class="earnings-label">This Month</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Earnings Charts -->
+                            <div class="earnings-charts mb-5">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="chart-card">
+                                            <h4 class="chart-title">Earnings Over Time</h4>
+                                            <canvas id="earningsChart" width="400" height="200"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="chart-card">
+                                            <h4 class="chart-title">Monthly Breakdown</h4>
+                                            <canvas id="monthlyChart" width="300" height="200"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Payments -->
+                            <div class="recent-payments">
+                                <div class="payments-header mb-4">
+                                    <h4 class="payments-title">Recent Payments</h4>
+                                </div>
+                                <div class="payments-list" id="paymentsList">
+                                    <div class="text-center">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="visually-hidden">Loading payments...</span>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </section>
+    </div>
+
+    <!-- My Ratings Page Content -->
+    <div id="my-ratings-content" class="page-content" style="display: none;">
+        <section class="my-ratings-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="my-ratings-content">
+                            <div class="my-ratings-header text-center mb-5">
+                                <h2 class="display-4 fw-bold text-white mb-4">My Ratings</h2>
+                                <div class="my-ratings-badge">
+                                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill">
+                                        <i class="bi bi-star-fill me-2"></i>
+                                        Student Feedback
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Ratings Overview -->
+                            <div class="ratings-overview mb-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="rating-stats-card">
+                                            <div class="text-center">
+                                                <div class="rating-icon">
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                                <h3 id="averageRating" class="rating-number">0.0</h3>
+                                                <p class="rating-label">Average Rating</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="rating-stats-card">
+                                            <div class="text-center">
+                                                <div class="rating-icon">
+                                                    <i class="bi bi-chat-dots"></i>
+                                                </div>
+                                                <h3 id="totalRatings" class="rating-number">0</h3>
+                                                <p class="rating-label">Total Ratings</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="rating-stats-card">
+                                            <div class="text-center">
+                                                <div class="rating-icon">
+                                                    <i class="bi bi-trophy"></i>
+                                                </div>
+                                                <h3 id="topRating" class="rating-number">0</h3>
+                                                <p class="rating-label">Highest Rating</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Ratings List -->
+                            <div class="ratings-list">
+                                <div class="ratings-list-header mb-4">
+                                    <h4 class="text-white mb-0">Recent Ratings</h4>
+                                </div>
+                                <div id="ratingsList" class="ratings-list-container">
+                                    <!-- Ratings will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous"></script>
+    
+    <!-- Admin Dashboard Page Content -->
+    <div id="admin-dashboard-content" class="page-content" style="display: none;">
+        <section class="admin-dashboard-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="admin-dashboard-content">
+                            <div class="admin-dashboard-header text-center mb-5">
+                                <h2 class="display-4 fw-bold text-white mb-4">Student Moods</h2>
+                                <div class="admin-dashboard-badge">
+                                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill">
+                                        <i class="bi bi-heart-pulse-fill me-2"></i>
+                                        Mood Analytics
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Mood Statistics -->
+                            <div class="row mb-4">
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-heart-pulse-fill"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="totalMoodsCount" class="stat-number">0</h3>
+                                            <p class="stat-label">Total Moods</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-trophy-fill"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="mostChosenMood" class="stat-number">-</h3>
+                                            <p class="stat-label">Most Chosen</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-graph-up-arrow"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="moodCount" class="stat-number">0</h3>
+                                            <p class="stat-label">Count</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-percent"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="moodPercentage" class="stat-number">0%</h3>
+                                            <p class="stat-label">Percentage</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Moods Chart -->
+                            <div class="row mb-5">
+                                <div class="col-lg-12">
+                                    <div class="admin-chart-card">
+                                        <h4 class="chart-title">Mood Distribution</h4>
+                                        <canvas id="moodsChart" width="400" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Admin Students Page -->
+    <div id="admin-students-content" class="page-content" style="display: none;">
+        <section class="admin-dashboard-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="admin-dashboard-content">
+                            <div class="admin-dashboard-header text-center mb-5">
+                                <h2 class="display-4 fw-bold text-white mb-4">Total Students</h2>
+                                <div class="admin-dashboard-badge">
+                                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill">
+                                        <i class="bi bi-people-fill me-2"></i>
+                                        Student Management
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Students Stats -->
+                            <div class="row mb-4">
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-people-fill"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="totalStudentsCount" class="stat-number">0</h3>
+                                            <p class="stat-label">Total Students</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-person-check-fill"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="assignedStudentsCount" class="stat-number">0</h3>
+                                            <p class="stat-label">With Coaches</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-person-x-fill"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="unassignedStudentsCount" class="stat-number">0</h3>
+                                            <p class="stat-label">Without Coaches</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-percent"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="assignmentRate" class="stat-number">0%</h3>
+                                            <p class="stat-label">Assignment Rate</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Students List -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="admin-chart-card">
+                                        <h4 class="chart-title">All Students</h4>
+                                        <div id="adminStudentsList" class="students-list">
+                                            <!-- Students will be loaded here -->
                                         </div>
                                     </div>
                                 </div>
@@ -900,14 +1352,176 @@
         </section>
     </div>
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Admin Profit Page -->
+    <div id="admin-profit-content" class="page-content" style="display: none;">
+        <section class="admin-dashboard-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="admin-dashboard-content">
+                            <div class="admin-dashboard-header text-center mb-5">
+                                <h2 class="display-4 fw-bold text-white mb-4">Financial Overview</h2>
+                                <div class="admin-dashboard-badge">
+                                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill">
+                                        <i class="bi bi-currency-dollar me-2"></i>
+                                        Profit Analytics
+                                    </span>
+                                </div>
+                            </div>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
-            crossorigin="anonymous"></script>
-    
+                            <!-- Financial Statistics -->
+                            <div class="row mb-4">
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-cash-stack"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="totalRevenue" class="stat-number">$0</h3>
+                                            <p class="stat-label">Total Revenue</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-percent"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="adminFees" class="stat-number">$0</h3>
+                                            <p class="stat-label">Admin Fees (10%)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-people-fill"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="coachEarnings" class="stat-number">$0</h3>
+                                            <p class="stat-label">Coach Earnings (90%)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-graph-up-arrow"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="totalPayments" class="stat-number">0</h3>
+                                            <p class="stat-label">Total Payments</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Revenue Chart -->
+                            <div class="row mb-5">
+                                <div class="col-lg-8">
+                                    <div class="admin-chart-card">
+                                        <h4 class="chart-title">Revenue Over Time</h4>
+                                        <canvas id="revenueChart" width="400" height="200"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="admin-chart-card">
+                                        <h4 class="chart-title">Revenue Distribution</h4>
+                                        <canvas id="revenueDistributionChart" width="200" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Payments -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="admin-chart-card">
+                                        <h4 class="chart-title">Recent Payments</h4>
+                                        <div id="recentPaymentsList" class="payments-list">
+                                            <!-- Recent payments will be loaded here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Admin Coach Ratings Page -->
+    <div id="admin-coach-ratings-content" class="page-content" style="display: none;">
+        <section class="admin-dashboard-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="admin-dashboard-content">
+                            <div class="admin-dashboard-header text-center mb-5">
+                                <h2 class="display-4 fw-bold text-white mb-4">Coach Ratings</h2>
+                                <div class="admin-dashboard-badge">
+                                    <span class="badge bg-white text-primary px-3 py-2 rounded-pill">
+                                        <i class="bi bi-star-fill me-2"></i>
+                                        Rating Analytics
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Rating Statistics -->
+                            <div class="row mb-4">
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="totalCoachRatings" class="stat-number">0</h3>
+                                            <p class="stat-label">Total Ratings</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-graph-up"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="averageCoachRating" class="stat-number">0.0</h3>
+                                            <p class="stat-label">Average Rating</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-3">
+                                    <div class="admin-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="bi bi-trophy-fill"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <h3 id="topRatedCoach" class="stat-number">0</h3>
+                                            <p class="stat-label">Top Rating</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Coach Ratings List -->
+                            <div class="coach-ratings-section">
+                                <div class="coach-ratings-header mb-4">
+                                    <h4 class="text-white mb-0">Coach Rating Overview</h4>
+                                </div>
+                                <div id="coachRatingsList" class="coach-ratings-list">
+                                    <!-- Coach ratings will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
     <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>
