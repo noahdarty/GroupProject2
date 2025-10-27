@@ -52,9 +52,8 @@ GroupProject2/
    ```
 
 The API will be available at:
-- HTTPS: `https://localhost:7000`
-- HTTP: `http://localhost:5000`
-- Swagger UI: `https://localhost:7000/swagger`
+-HTTP: http://localhost:5210
+-Swagger UI: http://localhost:5210/swagger/index.html
 
 ### Running the Frontend
 
